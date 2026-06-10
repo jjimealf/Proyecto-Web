@@ -62,6 +62,29 @@ npm run build
 
 El build de producción queda en `dist/`. Al usar `BrowserRouter`, un hosting estático debe redirigir las rutas desconocidas a `index.html`.
 
+## Despliegue en Vercel
+
+El repositorio incluye `vercel.json` para que las rutas de React Router, como `/clases/barbaro`, funcionen también al abrirlas o recargarlas directamente.
+
+1. Sube los últimos cambios a GitHub:
+
+   ```bash
+   git push origin master
+   ```
+
+2. Entra en [vercel.com/new](https://vercel.com/new) e inicia sesión con GitHub.
+3. Importa el repositorio `jjimealf/Proyecto-Web`.
+4. Comprueba la configuración detectada:
+   - Framework Preset: `Vite`
+   - Build Command: `npm run build`
+   - Output Directory: `dist`
+   - Install Command: `npm install`
+5. Pulsa **Deploy**.
+
+Vercel proporcionará una dirección del tipo `https://proyecto-web.vercel.app`. Cada nuevo `push` a la rama de producción generará automáticamente una nueva versión.
+
+Para usar un dominio propio, abre el proyecto en Vercel y entra en **Settings → Domains**.
+
 ## Arquitectura
 
 ```text
