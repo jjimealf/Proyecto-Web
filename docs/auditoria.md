@@ -39,9 +39,11 @@ No se encontraron enlaces internos ni imágenes rotas.
 - Código dividido por rutas; paquete inicial aproximado de 77 kB comprimidos.
 - Suite de 12 pruebas unitarias/componentes y 9 recorridos E2E ejecutados.
 - Build de producción reproducible en `dist/`.
+- Lighthouse sobre `vite preview`: 100 rendimiento, 100 accesibilidad y 96 buenas prácticas.
+- Métricas de escritorio: FCP 0,4 s, LCP 0,4 s, CLS 0 y TBT 0 ms.
 
 ## Riesgo residual
 
-- Lighthouse debe ejecutarse en el entorno de despliegue definitivo, porque servidor, compresión y caché afectan sus métricas.
+- Lighthouse debe repetirse en el despliegue definitivo, porque servidor, compresión y caché pueden modificar sus métricas.
 - Un hosting de `BrowserRouter` necesita fallback hacia `index.html`.
 - El contenido es una introducción editorial, no un sustituto completo del SRD ni de los libros oficiales.
