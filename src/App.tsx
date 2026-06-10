@@ -1,5 +1,6 @@
 import { lazy, Suspense } from "react";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import { Analytics } from "@vercel/analytics/react";
 import { D20Mark } from "./components/D20Mark";
 import { Layout } from "./components/Layout";
 import { FavoritesProvider } from "./context/FavoritesProvider";
@@ -50,6 +51,7 @@ export default function App() {
           </Routes>
         </Suspense>
       </FavoritesProvider>
+      <Analytics />
     </BrowserRouter>
   );
 }
