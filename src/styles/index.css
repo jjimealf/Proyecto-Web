@@ -2445,36 +2445,36 @@ h3 {
   overflow: hidden;
   background:
     radial-gradient(
-      circle at 16% 16%,
+      circle at 12% 12%,
       rgba(79, 140, 145, 0.1),
       transparent 32rem
     ),
     radial-gradient(
-      circle at 82% 38%,
+      circle at 86% 38%,
       rgba(166, 77, 71, 0.09),
-      transparent 34rem
+      transparent 36rem
     );
 }
 
 .world-hero {
   position: relative;
-  padding-block: clamp(5rem, 12vw, 10rem) clamp(4rem, 8vw, 7rem);
+  padding-block: clamp(4rem, 8vw, 7rem) clamp(3rem, 6vw, 5rem);
 }
 
 .world-hero::after {
   position: absolute;
   right: 3%;
-  bottom: 14%;
-  width: clamp(8rem, 20vw, 16rem);
+  bottom: 12%;
+  display: grid;
+  width: clamp(8rem, 18vw, 15rem);
+  place-items: center;
   border: 1px solid var(--line);
   border-radius: 50%;
   aspect-ratio: 1;
-  content: "VII";
-  display: grid;
-  place-items: center;
   color: rgba(222, 193, 138, 0.08);
   font-family: var(--display);
   font-size: clamp(3rem, 8vw, 7rem);
+  content: "VII";
   box-shadow: 0 0 0 1.4rem rgba(222, 193, 138, 0.018);
 }
 
@@ -2492,31 +2492,38 @@ h3 {
 }
 
 .world-explorer {
-  padding-bottom: clamp(5rem, 11vw, 9rem);
+  width: min(92rem, calc(100% - 2rem));
+  margin-inline: auto;
+  padding-bottom: clamp(5rem, 10vw, 8rem);
 }
 
-.world-explorer__layout {
+.world-explorer__heading {
+  width: min(var(--shell), 100%);
+  margin-bottom: 2rem;
+}
+
+.world-explorer__content {
   display: grid;
-  grid-template-columns: minmax(0, 1.35fr) minmax(19rem, 0.65fr);
-  gap: 1rem;
-  align-items: stretch;
+  gap: 0;
 }
 
 .world-map {
-  padding: 0.7rem;
+  position: relative;
+  padding: clamp(0.35rem, 0.8vw, 0.7rem);
   border: 1px solid var(--line-strong);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
   background: #18140f;
   box-shadow:
-    var(--shadow),
+    0 32px 100px rgba(0, 0, 0, 0.42),
     inset 0 0 0 1px rgba(255, 255, 255, 0.025);
 }
 
 .world-map__canvas {
   position: relative;
   overflow: hidden;
-  border: 1px solid rgba(29, 20, 11, 0.8);
-  border-radius: calc(var(--radius-lg) - 0.45rem);
+  border: 1px solid rgba(29, 20, 11, 0.82);
+  border-radius: calc(var(--radius-lg) - 0.45rem)
+    calc(var(--radius-lg) - 0.45rem) 0 0;
   aspect-ratio: 3 / 2;
   background: #5b4630;
   isolation: isolate;
@@ -2527,7 +2534,9 @@ h3 {
   z-index: 1;
   inset: 0;
   pointer-events: none;
-  background: radial-gradient(circle, transparent 45%, rgba(20, 14, 8, 0.48));
+  background:
+    linear-gradient(to bottom, transparent 72%, rgba(20, 14, 8, 0.2)),
+    radial-gradient(circle, transparent 52%, rgba(20, 14, 8, 0.42));
   content: "";
 }
 
@@ -2535,7 +2544,7 @@ h3 {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: saturate(0.78) contrast(1.04) brightness(0.78);
+  filter: saturate(0.82) contrast(1.04) brightness(0.82);
 }
 
 .world-map__marker {
@@ -2554,13 +2563,13 @@ h3 {
 }
 
 .world-map__marker > span {
-  width: 0.9rem;
+  width: 0.95rem;
   border: 2px solid #17100a;
   border-radius: 50%;
   aspect-ratio: 1;
   background: var(--marker-color);
   box-shadow:
-    0 0 0 4px rgba(242, 224, 190, 0.72),
+    0 0 0 4px rgba(242, 224, 190, 0.76),
     0 5px 16px rgba(0, 0, 0, 0.65);
   transition:
     transform 180ms ease,
@@ -2571,13 +2580,13 @@ h3 {
   position: absolute;
   top: calc(50% + 1rem);
   width: max-content;
-  max-width: 9rem;
-  padding: 0.2rem 0.45rem;
+  max-width: 10rem;
+  padding: 0.25rem 0.5rem;
   border-radius: 0.3rem;
   color: #fff5df;
-  background: rgba(20, 14, 9, 0.78);
+  background: rgba(20, 14, 9, 0.8);
   font-family: var(--display);
-  font-size: clamp(0.66rem, 1.2vw, 0.86rem);
+  font-size: clamp(0.72rem, 1vw, 0.94rem);
   font-weight: 600;
   line-height: 1.1;
   text-shadow: 0 2px 4px #000;
@@ -2585,10 +2594,10 @@ h3 {
 
 .world-map__marker:hover > span,
 .world-map__marker[aria-pressed="true"] > span {
-  transform: scale(1.4);
+  transform: scale(1.45);
   box-shadow:
-    0 0 0 5px rgba(242, 224, 190, 0.86),
-    0 0 26px var(--marker-color);
+    0 0 0 5px rgba(242, 224, 190, 0.88),
+    0 0 28px var(--marker-color);
 }
 
 .world-map__marker[aria-pressed="true"] strong {
@@ -2597,64 +2606,141 @@ h3 {
 
 .world-map__hint {
   margin: 0;
-  padding: 0.7rem 0.4rem 0.1rem;
+  padding: 0.75rem 0.55rem 0.15rem;
   color: var(--muted);
   font-size: 0.7rem;
   font-weight: 750;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
+.world-region-list {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  border: 1px solid var(--line-strong);
+  border-top: 0;
+  background: rgba(18, 16, 13, 0.96);
+}
+
+.world-region-list button {
+  display: grid;
+  min-height: 4.4rem;
+  padding: 0.75rem;
+  align-content: center;
+  border: 0;
+  border-right: 1px solid var(--line);
+  color: var(--muted-strong);
+  background: transparent;
+  font-family: var(--display);
+  font-size: clamp(0.76rem, 1vw, 0.92rem);
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    color 160ms ease,
+    background 160ms ease;
+}
+
+.world-region-list button:last-child {
+  border-right: 0;
+}
+
+.world-region-list button span {
+  margin-bottom: 0.15rem;
+  color: var(--muted);
+  font-family: var(--body);
+  font-size: 0.58rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+}
+
+.world-region-list button:hover {
+  color: var(--ink-strong);
+  background: rgba(222, 193, 138, 0.05);
+}
+
+.world-region-list button[aria-pressed="true"] {
+  color: var(--night);
+  background: var(--parchment);
+}
+
+.world-region-list button[aria-pressed="true"] span {
+  color: rgba(16, 15, 13, 0.65);
+}
+
 .world-region {
+  --panel-gap: clamp(1.5rem, 3vw, 3.2rem);
   position: relative;
-  padding: clamp(1.5rem, 3vw, 2.2rem);
+  display: grid;
+  padding: clamp(1.6rem, 4vw, 3.5rem);
   overflow: hidden;
+  grid-template-columns: minmax(16rem, 0.82fr) minmax(18rem, 1fr) minmax(
+      20rem,
+      1.12fr
+    );
+  gap: var(--panel-gap);
   border: 1px solid color-mix(in srgb, var(--region-color) 45%, var(--line));
-  border-radius: var(--radius-lg);
+  border-top: 0;
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
   background:
     radial-gradient(
-      circle at 90% 10%,
-      color-mix(in srgb, var(--region-color) 16%, transparent),
-      transparent 13rem
+      circle at 2% 15%,
+      color-mix(in srgb, var(--region-color) 15%, transparent),
+      transparent 22rem
     ),
-    linear-gradient(155deg, var(--iron-raised), var(--iron));
-  box-shadow: var(--shadow);
+    linear-gradient(125deg, var(--iron-raised), var(--iron));
+  box-shadow: 0 34px 90px rgba(0, 0, 0, 0.36);
 }
 
 .world-region::before {
   position: absolute;
   top: 0;
+  right: 0;
   left: 0;
-  width: 0.3rem;
-  height: 100%;
+  height: 0.22rem;
   background: var(--region-color);
   content: "";
+}
+
+.world-region__intro,
+.world-region__story,
+.world-region__landmarks {
+  min-width: 0;
+}
+
+.world-region__story,
+.world-region__landmarks {
+  padding-left: var(--panel-gap);
+  border-left: 1px solid var(--line);
 }
 
 .world-region h2 {
   margin-bottom: 0.8rem;
   color: color-mix(in srgb, var(--region-color) 35%, var(--ink-strong));
+  font-size: clamp(2.6rem, 5vw, 4.6rem);
 }
+
 .world-region__summary {
   color: var(--muted-strong);
   font-family: var(--display);
-  font-size: 1.1rem;
+  font-size: 1.12rem;
 }
 
 .world-region__facts {
   display: grid;
-  margin: 1.6rem 0;
-  grid-template-columns: 1fr 1fr;
+  margin: 1.6rem 0 0;
+  grid-template-columns: 0.7fr 1.3fr;
   border-block: 1px solid var(--line);
 }
 
 .world-region__facts div {
   padding: 0.9rem 0.5rem 0.9rem 0;
 }
+
 .world-region__facts div + div {
   padding-left: 0.9rem;
   border-left: 1px solid var(--line);
 }
+
 .world-region__facts dt,
 .world-region__story span {
   color: var(--muted);
@@ -2663,72 +2749,58 @@ h3 {
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
+
 .world-region__facts dd {
   margin: 0.25rem 0 0;
   font-family: var(--display);
   line-height: 1.35;
 }
+
+.world-region__story {
+  display: grid;
+  align-content: start;
+  gap: 1.6rem;
+}
+
 .world-region__story p {
-  margin: 0.25rem 0 1rem;
+  margin: 0.35rem 0 0;
   color: var(--muted-strong);
-  font-size: 0.9rem;
-  line-height: 1.55;
+  font-family: var(--display);
+  font-size: 1.04rem;
+  line-height: 1.65;
 }
-.world-region__landmarks {
-  margin-top: 1.6rem;
-}
+
 .world-region__landmarks h3 {
-  margin-bottom: 0.6rem;
-  font-size: 1.15rem;
+  margin-bottom: 0.7rem;
+  font-size: 1.35rem;
 }
+
 .world-region__landmarks > div {
   display: grid;
-  padding: 0.7rem 0;
-  grid-template-columns: 2rem 1fr;
-  gap: 0.5rem;
+  padding: 0.8rem 0;
+  grid-template-columns: 2.2rem 1fr;
+  gap: 0.65rem;
   border-top: 1px solid var(--line);
 }
+
 .world-region__landmarks span {
   color: var(--region-color);
   font-family: var(--display);
 }
+
 .world-region__landmarks p {
   margin: 0;
   color: var(--muted);
-  font-size: 0.78rem;
-  line-height: 1.45;
+  font-size: 0.82rem;
+  line-height: 1.5;
 }
+
 .world-region__landmarks strong {
   display: block;
   margin-bottom: 0.15rem;
   color: var(--ink);
   font-family: var(--display);
-  font-size: 0.95rem;
-}
-
-.world-region-list {
-  display: flex;
-  margin-top: 1rem;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-
-.world-region-list button {
-  min-height: 2.75rem;
-  padding: 0.55rem 0.85rem;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  color: var(--muted-strong);
-  background: rgba(27, 24, 20, 0.7);
-  font-size: 0.72rem;
-  font-weight: 800;
-  cursor: pointer;
-}
-
-.world-region-list button[aria-pressed="true"] {
-  border-color: var(--parchment);
-  color: var(--night);
-  background: var(--parchment);
+  font-size: 1rem;
 }
 
 .world-history {
@@ -2748,6 +2820,7 @@ h3 {
 .world-history h2 {
   max-width: 15ch;
 }
+
 .world-history > p:last-child {
   max-width: 48rem;
   margin: 0;
@@ -2764,45 +2837,113 @@ h3 {
 .world-next h2 {
   max-width: 13ch;
 }
+
 .world-next .button-row {
   justify-content: center;
 }
 
-@media (max-width: 54rem) {
-  .world-explorer__layout {
-    grid-template-columns: 1fr;
-  }
+@media (max-width: 72rem) {
   .world-region {
-    min-height: auto;
+    grid-template-columns: minmax(16rem, 0.8fr) minmax(0, 1.2fr);
+  }
+
+  .world-region__landmarks {
+    display: grid;
+    padding-top: 1.5rem;
+    padding-left: 0;
+    grid-column: 1 / -1;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0 1rem;
+    border-top: 1px solid var(--line);
+    border-left: 0;
+  }
+
+  .world-region__landmarks h3 {
+    grid-column: 1 / -1;
   }
 }
 
-@media (max-width: 39rem) {
-  .world-hero::after {
-    display: none;
+@media (max-width: 54rem) {
+  .world-region-list {
+    grid-template-columns: repeat(3, 1fr);
   }
-  .world-map {
-    padding: 0.35rem;
+
+  .world-region-list button:nth-child(3) {
+    border-right: 0;
   }
-  .world-map__marker strong {
-    display: none;
+
+  .world-region-list button:nth-child(-n + 3) {
+    border-bottom: 1px solid var(--line);
   }
-  .world-map__marker > span {
-    width: 0.75rem;
-  }
-  .world-region__facts {
+
+  .world-region {
     grid-template-columns: 1fr;
   }
-  .world-region__facts div + div {
+
+  .world-region__story,
+  .world-region__landmarks {
+    padding-top: 1.5rem;
     padding-left: 0;
     border-top: 1px solid var(--line);
     border-left: 0;
   }
+
+  .world-region__landmarks {
+    grid-column: auto;
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 39rem) {
+  .world-explorer {
+    width: min(100% - 1.2rem, 92rem);
+  }
+
+  .world-hero::after {
+    display: none;
+  }
+
+  .world-map {
+    padding: 0.25rem;
+  }
+
+  .world-map__marker strong {
+    display: none;
+  }
+
+  .world-map__marker > span {
+    width: 0.78rem;
+  }
+
   .world-region-list {
-    display: grid;
     grid-template-columns: 1fr 1fr;
   }
-  .world-region-list button {
-    width: 100%;
+
+  .world-region-list button,
+  .world-region-list button:nth-child(3) {
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .world-region-list button:nth-child(2n) {
+    border-right: 0;
+  }
+
+  .world-region-list button:nth-last-child(-n + 2) {
+    border-bottom: 0;
+  }
+
+  .world-region {
+    padding: 1.4rem;
+  }
+
+  .world-region__facts {
+    grid-template-columns: 1fr;
+  }
+
+  .world-region__facts div + div {
+    padding-left: 0;
+    border-top: 1px solid var(--line);
+    border-left: 0;
   }
 }

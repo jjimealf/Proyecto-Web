@@ -33,6 +33,14 @@ describe("WorldPage", () => {
     ).toBeInTheDocument();
   });
 
+  it("ordena el mapa, el selector y la ficha como una lectura panorámica", () => {
+    const { container } = renderPage();
+    const content = container.querySelector(".world-explorer__content");
+
+    expect(content?.children[0]).toHaveClass("world-map");
+    expect(content?.children[1]).toHaveClass("world-region-list");
+    expect(content?.children[2]).toHaveClass("world-region");
+  });
   it("actualiza la ficha y la URL al seleccionar una región", async () => {
     const user = userEvent.setup();
     renderPage();

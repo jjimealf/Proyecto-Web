@@ -8,19 +8,22 @@ export function WorldRegionPanel({ region }: { region: WorldRegion }) {
       aria-live="polite"
       style={{ "--region-color": region.color } as CSSProperties}
     >
-      <p className="eyebrow">{region.epithet}</p>
-      <h2>{region.name}</h2>
-      <p className="world-region__summary">{region.summary}</p>
-      <dl className="world-region__facts">
-        <div>
-          <dt>Capital</dt>
-          <dd>{region.capital}</dd>
-        </div>
-        <div>
-          <dt>Pueblos</dt>
-          <dd>{region.peoples}</dd>
-        </div>
-      </dl>
+      <div className="world-region__intro">
+        <p className="eyebrow">{region.epithet}</p>
+        <h2>{region.name}</h2>
+        <p className="world-region__summary">{region.summary}</p>
+        <dl className="world-region__facts">
+          <div>
+            <dt>Capital</dt>
+            <dd>{region.capital}</dd>
+          </div>
+          <div>
+            <dt>Pueblos</dt>
+            <dd>{region.peoples}</dd>
+          </div>
+        </dl>
+      </div>
+
       <div className="world-region__story">
         <div>
           <span>Identidad</span>
@@ -31,6 +34,7 @@ export function WorldRegionPanel({ region }: { region: WorldRegion }) {
           <p>{region.conflict}</p>
         </div>
       </div>
+
       <div className="world-region__landmarks">
         <h3>Lugares señalados</h3>
         {region.landmarks.map((landmark, index) => (

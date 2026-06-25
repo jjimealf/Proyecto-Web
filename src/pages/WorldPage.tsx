@@ -27,36 +27,34 @@ export default function WorldPage() {
         </p>
       </header>
 
-      <section
-        className="world-explorer content-shell"
-        aria-labelledby="atlas-title"
-      >
-        <div className="section-heading section-heading--split">
+      <section className="world-explorer" aria-labelledby="atlas-title">
+        <div className="section-heading section-heading--split world-explorer__heading">
           <div>
             <p className="eyebrow">Cartografía viva</p>
             <h2 id="atlas-title">Abre una región del atlas</h2>
           </div>
           <p>Las fronteras cambian. Las cicatrices permanecen.</p>
         </div>
-        <div className="world-explorer__layout">
+        <div className="world-explorer__content">
           <WorldMap
             regions={worldRegions}
             selectedSlug={selected.slug}
             onSelect={selectRegion}
           />
+          <div className="world-region-list" aria-label="Regiones de Eryndor">
+            {worldRegions.map((region, index) => (
+              <button
+                key={region.slug}
+                type="button"
+                aria-pressed={region.slug === selected.slug}
+                onClick={() => selectRegion(region.slug)}
+              >
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                {region.name}
+              </button>
+            ))}
+          </div>
           <WorldRegionPanel region={selected} />
-        </div>
-        <div className="world-region-list" aria-label="Regiones de Eryndor">
-          {worldRegions.map((region) => (
-            <button
-              key={region.slug}
-              type="button"
-              aria-pressed={region.slug === selected.slug}
-              onClick={() => selectRegion(region.slug)}
-            >
-              {region.name}
-            </button>
-          ))}
         </div>
       </section>
 
