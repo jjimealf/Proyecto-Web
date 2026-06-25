@@ -35,7 +35,7 @@ function AtlasVisual() {
 export default function HomePage() {
   useDocumentMeta(
     "Crónicas del Dragón",
-    "Descubre clases, especies y conceptos de personaje en una guía editorial interactiva inspirada en los juegos de rol.",
+    "Explora Eryndor, un mundo fantástico original, y crea héroes para recorrer sus reinos y cicatrices dracónicas.",
   );
 
   const featuredEntries = [classes[0], species[1], classes[8]].filter(Boolean);
@@ -44,21 +44,21 @@ export default function HomePage() {
     <>
       <section className="hero-section">
         <div className="hero-section__copy reveal">
-          <p className="eyebrow">Archivo de aventureros · Edición I</p>
+          <p className="eyebrow">Atlas de Eryndor · Año 614 de la Ceniza</p>
           <h1>
             Toda leyenda
             <span>empieza con una elección.</span>
           </h1>
           <p className="hero-section__lead">
-            Una guía visual para descubrir cómo luchan, viven y cambian los
-            héroes de un mundo fantástico.
+            Un mundo original de reinos, magia y cicatrices dracónicas, junto a
+            las herramientas para crear a quienes se atrevan a recorrerlo.
           </p>
           <div className="button-row">
-            <Link className="button" to="/forja">
-              Forja tu leyenda
+            <Link className="button" to="/mundo">
+              Explorar el mundo
             </Link>
-            <Link className="button button--ghost" to="/introduccion">
-              Abrir la guía
+            <Link className="button button--ghost" to="/forja">
+              Forja tu leyenda
             </Link>
           </div>
           <dl className="hero-metrics">
@@ -71,8 +71,8 @@ export default function HomePage() {
               <dd>especies</dd>
             </div>
             <div>
-              <dt>∞</dt>
-              <dd>historias</dd>
+              <dt>6</dt>
+              <dd>territorios</dd>
             </div>
           </dl>
         </div>
@@ -95,7 +95,7 @@ export default function HomePage() {
       <section className="home-intro content-shell">
         <div className="section-heading">
           <p className="eyebrow">Empieza por una pregunta</p>
-          <h2>¿Quién quieres ser cuando el mapa se termine?</h2>
+          <h2>¿Qué historia espera al otro lado del mapa?</h2>
         </div>
         <div className="home-intro__copy">
           <p>
@@ -103,8 +103,8 @@ export default function HomePage() {
             legado físico y fantástico. Tu historia nace en el espacio entre
             ambas decisiones.
           </p>
-          <Link className="text-link" to="/introduccion">
-            Entender los fundamentos <span aria-hidden="true">↗</span>
+          <Link className="text-link" to="/mundo">
+            Abrir el atlas <span aria-hidden="true">↗</span>
           </Link>
         </div>
       </section>

@@ -5,6 +5,7 @@ import { D20Mark } from "./D20Mark";
 
 const navigation = [
   { to: "/", label: "Inicio", end: true },
+  { to: "/mundo", label: "Mundo" },
   { to: "/introduccion", label: "Introducción" },
   { to: "/clases", label: "Clases" },
   { to: "/especies", label: "Especies" },

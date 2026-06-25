@@ -63,3 +63,27 @@ export type ForgeResult = {
   speciesSlug: string;
   createdAt: string;
 };
+
+export type MapPosition = {
+  x: number;
+  y: number;
+};
+
+export type WorldLandmark = {
+  name: string;
+  description: string;
+};
+
+export type WorldRegion = {
+  slug: string;
+  name: string;
+  epithet: string;
+  capital: string;
+  peoples: string;
+  color: string;
+  summary: string;
+  identity: string;
+  conflict: string;
+  mapPosition: MapPosition;
+  landmarks: WorldLandmark[];
+};

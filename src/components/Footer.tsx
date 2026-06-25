@@ -9,12 +9,11 @@ export function Footer() {
           <D20Mark label="20" />
           <div>
             <strong>Crónicas del Dragón</strong>
-            <p>
-              Una guía editorial interactiva creada como proyecto de portfolio.
-            </p>
+            <p>Un atlas de worldbuilding y una guía para crear héroes.</p>
           </div>
         </div>
         <div className="footer-links" aria-label="Enlaces de pie de página">
+          <Link to="/mundo">Atlas de Eryndor</Link>
           <Link to="/introduccion">Cómo se juega</Link>
           <Link to="/clases">Catálogo de clases</Link>
           <Link to="/especies">Catálogo de especies</Link>

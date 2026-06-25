@@ -30,6 +30,13 @@ describe("Header", () => {
     expect(screen.getByRole("navigation")).toHaveClass("is-open");
   });
 
+  it("incluye el atlas del mundo en la navegación principal", () => {
+    renderHeader();
+    expect(screen.getByRole("link", { name: "Mundo" })).toHaveAttribute(
+      "href",
+      "/mundo",
+    );
+  });
   it("no presenta infracciones automáticas de accesibilidad", async () => {
     const { container } = renderHeader();
     const results = await axe.run(container);

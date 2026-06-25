@@ -7,6 +7,7 @@ import { FavoritesProvider } from "./context/FavoritesProvider";
 
 const HomePage = lazy(() => import("./pages/HomePage"));
 const IntroductionPage = lazy(() => import("./pages/IntroductionPage"));
+const WorldPage = lazy(() => import("./pages/WorldPage"));
 const CatalogPage = lazy(() => import("./pages/CatalogPage"));
 const DetailPage = lazy(() => import("./pages/DetailPage"));
 const FavoritesPage = lazy(() => import("./pages/FavoritesPage"));
@@ -30,6 +31,7 @@ export default function App() {
             <Route element={<Layout />}>
               <Route index element={<HomePage />} />
               <Route path="introduccion" element={<IntroductionPage />} />
+              <Route path="mundo" element={<WorldPage />} />
               <Route path="clases" element={<CatalogPage type="classes" />} />
               <Route
                 path="clases/:slug"
