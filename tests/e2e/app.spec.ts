@@ -80,3 +80,29 @@ test("el menú móvil permite llegar a especies", async ({ page }, testInfo) => 
   await expect(page).toHaveURL(/\/especies$/);
   await expect(menu).toHaveAttribute("aria-expanded", "false");
 });
+
+test("explora Eryndor y comparte una región mediante la URL", async ({
+  page,
+}) => {
+  await page.goto("/");
+  await expect(
+    page.getByRole("heading", { name: /Toda leyenda/i }),
+  ).toBeVisible();
+  await openMobileNavigation(page);
+  await page.getByRole("link", { name: "Mundo", exact: true }).click();
+
+  await expect(page).toHaveURL(/\/mundo$/);
+  await expect(
+    page.getByRole("heading", {
+      name: /Un continente escrito sobre cicatrices de dragón/i,
+    }),
+  ).toBeVisible();
+
+  await page.getByRole("button", { name: "Explorar Sylvaran" }).click();
+
+  await expect(page).toHaveURL(/region=sylvaran/);
+  await expect(page.getByRole("heading", { name: "Sylvaran" })).toBeVisible();
+
+  await page.reload();
+  await expect(page.getByRole("heading", { name: "Sylvaran" })).toBeVisible();
+});
